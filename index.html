@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link class="builder" rel="stylesheet" href="./assets/css/builder.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <title>App</title>
+        
+        <style>
+            /* GLOBAL */
+            /*Tags*/
+            a {
+                text-decoration: none;
+                transition: .2s;
+            }
+
+            a:hover {
+                opacity: .5;
+            }
+
+            body{
+                color: #343a40;
+                font-family: Helvetica, sans-serif;
+                font-size: 1.5rem;
+                margin: 0;
+            }
+
+            button{ 
+                border: none;
+                border-radius: .25rem;
+                cursor: pointer;
+            }
+
+            button:hover {
+                opacity: .5rem;
+            }
+
+            h1, h2, h3, h4, h5, p {
+                margin: 0;
+                margin-bottom: 1rem;
+            }
+
+            img{
+                vertical-align: middle;
+            }
+
+            section {
+                display: flex;
+                justify-content: center;
+                padding: 1.5rem;
+            }
+
+            /*IDs / Classes*/
+            .btn {
+                /*Custom*/
+                background-color: #5b79fb;
+                color: white;
+
+                /*Standart*/
+                align-items: center;
+                border-radius: 1rem;
+                box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.25);
+                display: flex;
+                justify-content: center;
+                font-size: 1.5rem;
+                height: 3.5rem;
+                transition: .3s;
+            }
+
+            .btn:hover {
+                box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.5);
+                opacity: .9;
+            }
+
+            .btn i{
+                margin-right: 1rem;
+            }
+
+            .container {
+                width: 100%;
+            }
+
+            /* Header */
+            header {
+                /*Custom*/
+                color: #343a40;
+
+                /*Standart*/
+                align-items: center;
+                box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.25);
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 2px;
+                padding: 1rem 1rem;
+                position: relative;
+                z-index: 1000;
+            }
+
+            #bars {
+                /*Custom*/
+                border-color: #343a40;
+                color: #343a40;
+                
+                /*Standart*/
+                background-color: rgba(0,0,0,0);
+                border-style: solid;
+                border-width: 1px;
+                height: 2.5rem;
+                width: 2.5rem;
+                transition: .3s;
+            }
+
+            #bars:hover {
+                opacity: .5;
+            }
+
+            #bars i {
+                /*Custom*/
+                color: #343a40;
+                /*Standart*/
+                font-size: 1.75rem;
+                transition: .3s;
+            }
+
+            #menu {
+                background-color: white;
+                box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.25);
+                display: none;
+                flex-direction: column;
+                overflow: hidden;
+                position: absolute;
+                right: 0;
+                top: 72px;
+                transition: 3s;
+                width: 100vw;
+            }
+
+            #menu a {
+                /*Custom*/
+                color: #343a40;
+
+                /*Standart*/
+                font-size: 1.5rem;
+                padding: .75rem 0;
+                text-align: center;
+                transition: .3s;
+                width: 100%;
+            }
+
+            /* Home */
+            #home {
+                background-image: url("../img/back2.jpg") repeat;
+                background-color: #dde1e7;
+                color: #343a40;
+            }
+            #home .container {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+            #home .btn-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin-bottom: 1rem;
+                margin-top: 2rem;
+            }
+
+            #home .btn {
+                margin-bottom: 1rem;
+            }
+
+            #home .left{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                max-width: 540px;
+            }
+
+            #home .left h1{
+                text-align: center;
+            }
+
+            #home .right{
+                padding: 0 1rem;
+                margin-bottom: 2rem;
+            }
+
+            /* Mobile Phone */
+            #mobile {
+                background-color: white;
+                border: 2px solid gray;
+                border-radius: 30px;
+                box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.5);
+                height: 500px;
+                margin: auto;
+                width: 250px;
+            }
+
+            #mobile-screen{
+                background-color: black;
+                height: 400px;
+                margin-left: 12.5px;
+                margin-top: 38px;
+                position: absolute;
+                width: 225px;
+            }
+
+            #mobile-button{
+                border: 2px solid gray;
+                border-radius: 18px;
+                box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.5);
+                margin-left: 108px;
+                margin-top: 450px;
+                position: absolute;
+                height: 36px;
+                width: 36px;
+            }
+
+            #about, #features {
+                padding-bottom: 2.5rem;
+                padding-top: 2.5rem;
+            }
+
+            #about h1, #features h1 {
+                text-align: center;
+            }
+
+            #about .container {
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+            }
+
+            #about .container p {
+                max-width: 700px;
+            }
+
+            /* Features */
+            #features {
+                background-color: #dde1e7;
+            }
+
+            #features-container {
+                margin-top: 2rem;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .feature-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 280px;
+                margin: 1.2rem;
+            }
+
+            .feature-item i {
+                background-color: white;
+                border-radius: 4rem;
+                font-size: 6rem;
+                margin-bottom: 1rem;
+                padding-bottom: 1rem;
+                padding-top: 1rem;
+                text-align: center;
+                width: 8rem;
+            }
+            .feature-item p {
+                font-size: 1.2rem;
+            }
+
+            /* Footer */
+            footer {
+                background-color: #343a40;
+                text-align: center;
+            }
+
+            footer small {
+                color: #ccc;
+                font-size: 1rem;
+                margin: 1rem;
+            }
+
+            footer small a{
+                color: #ccc;
+                font-size: 1rem;
+                
+            }
+
+            .links-container{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .links-container a{
+                color: white;
+                font-size: 1.2rem;
+                margin: 1rem;
+                text-align: center;
+            }
+
+            @media (min-width: 576px){
+                .container {
+                    max-width: 540px;
+                }
+
+                #home .btn-container {
+                    display: flex;
+                    flex-direction: row;
+                    margin-bottom: 1rem;
+                }
+
+                #home .btn {
+                    width: 200px;
+                }
+
+                #home .btn + .btn {
+                    margin-left: 1rem;
+                }
+
+                footer .links-container{
+                    flex-direction: row;
+                }    
+            }
+
+            @media (min-width: 768px){
+                #bars {
+                    display: none;
+                }
+
+                .container {
+                    max-width: 720px;
+                }
+
+                header {
+                    padding: 1rem 2rem;
+                }
+
+                #home .container {
+                    flex-direction: row;
+                    justify-content: space-around;
+                }
+
+                #home .btn-container {
+                    justify-content: left;
+                }
+
+                #home .left h1{
+                    text-align: left;
+                }
+
+                #menu {
+                    box-shadow: none;
+                    display: block;
+                    position: static;
+                    width: auto;
+                }
+                
+                #menu a {
+                    /*Custom*/
+                
+                    /*Standart*/
+                    padding: 0;
+                }
+
+                #menu a + a {
+                    padding-left: 1rem;
+                }
+            }
+
+            @media (min-width: 992px){
+                .container {
+                    max-width: 960px;
+                }
+            }
+
+            @media (min-width: 1200px){
+                .container {
+                    max-width: 1140px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="builder">
+            <p><i class="fa fa-edit"></i>Edit buttons on the top-right of each section.</p>
+            <button onclick="download()">
+                <i class="fa fa-download"></i>
+                Download Site
+            </button>
+        </nav>
+
+        <!-- HEADER -->
+        <header>
+            <button id="footer-edit" class="builder builder-btn">
+                <i class="fa fa-edit"></i>
+            </button>
+            <div id="logo">
+                <img src="data:image/png;base64,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" height="40" alt="Logo" >
+            </div>
+            <div id="menu">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#features">Features</a>
+            </div>
+            <button id="bars" onclick="menu()">
+                <i class="fa fa-bars"></i>
+            </button>
+        </header>
+
+        <!-- HOME -->
+        <section id="home">
+            <button id="home-edit" class="builder builder-btn">
+                <i class="fa fa-edit"></i>
+            </button>
+            <div class="container">
+                <div class="left">
+                    <h1>App Name</h1>
+                    <h5>
+                        Short description of your App... 
+                        Lorem ipsum dolor sit amet, 
+                        consectetur adipiscing elit. 
+                        
+                    </h5>
+                    <div class="btn-container">
+                        <a href="#" class="btn">
+                            <i class="fa fa-apple mr-3"></i>
+                            App Store
+                        </a>
+                        <a href="#" class="btn">
+                            <i class="fa fa-android mr-3"></i>
+                            Google Play
+                        </a>
+                    </div>
+                </div>
+                <div class="right">
+                    <div id="mobile">
+                        <img id="mobile-screen" src="data:image/png;base64,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" alt="App print" />
+                        <div id="mobile-button"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about">
+            <button id="about-edit" class="builder builder-btn">
+                <i class="fa fa-edit"></i>
+            </button>
+            <div class="container">
+                <h1>About</h1>
+                <p>
+                    Long description of your App, but not so much... Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section id="features">
+            <button id="features-edit" class="builder builder-btn">
+                <i class="fa fa-edit"></i>
+            </button>
+            <div class="container">
+                <h1>Features</h1>
+                <div id="features-container">
+
+                    <div class="feature-item">
+                        <i class="fa fa-map-marker"></i>
+                        <h3>Location</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, 
+                            consectetur adipiscing elit, 
+                            sed do eiusmod tempor incididunt 
+                            ut labore et dolore magna aliqua.
+                        </p>
+                    </div>
+
+                    <div class="feature-item">
+                        <i class="fa fa-map-marker"></i>
+                        <h3>Location</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, 
+                            consectetur adipiscing elit, 
+                            sed do eiusmod tempor incididunt 
+                            ut labore et dolore magna aliqua.
+                        </p>
+                    </div>
+
+                    <div class="feature-item">
+                        <i class="fa fa-map-marker"></i>
+                        <h3>Location</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, 
+                            consectetur adipiscing elit, 
+                            sed do eiusmod tempor incididunt 
+                            ut labore et dolore magna aliqua.
+                        </p>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <button id="footer-edit" class="builder builder-btn">
+                <i class="fa fa-edit"></i>
+            </button>
+            <div class="links-container">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            <small>Icons made by
+                <a href="https://fontawesome.com/license">Font Awesome</a>
+            </small>
+        </footer>
+
+
+
+         <!-- SCRIPT -->
+        <script>
+            var menuElement = document.querySelector('#menu');
+            menuElement.onclick = function(){menu()};
+            function menu(){
+                var display = window.getComputedStyle(menuElement).getPropertyValue('display');
+                if(display == 'none'){
+                    menuElement.style.display = 'flex';
+                } else {
+                    menuElement.style.display = 'none';
+                }
+            }
+        </script>
+
+        <script class="builder" src="assets/js/builder.js"></script>
+    </body>
+</html>
