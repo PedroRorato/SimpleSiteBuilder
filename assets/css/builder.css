@@ -44,3 +44,172 @@ header, #home, #about, #features, footer {
     opacity: .5;
     
 }
+
+.modal {
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    height: 100vh;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: .3rem;
+    padding: 1.2rem;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+}
+
+.buttons-container {
+    padding-top: 1rem;
+    text-align: right;
+}
+
+.modal button {
+    color: white;
+    font-size: 1.5rem;
+    padding: .5rem 1rem;
+}
+.modal button + button {
+    margin-left: .75rem;
+}
+
+.primary{
+    background: #007bff;
+}
+
+.secondary {
+    background: #6c757d;
+}
+
+.modal h3, .modal h5 {
+    margin: 0;
+}
+.modal h4 {
+    margin: 0;
+    margin-top: 1.5rem;
+}
+
+.close {
+    cursor: pointer;
+    position: absolute;
+    right: 1.25rem;
+    transition: .3s;
+}
+
+.close:hover {
+    opacity: .5;
+}
+
+.form {
+    border: 1px solid #ddd;
+    max-height: calc(90vh - 200px);
+    padding: 0 .75rem 1rem;
+    overflow-y: scroll;
+    width: calc(100% - 1.5rem);
+}
+
+.form-group {
+    margin: .5rem 0;
+}
+
+.form-group label {
+    font-size: 1.25rem;
+    
+}
+
+.form-group input {
+    border: 2px solid #ddd;
+    border-radius: .3rem;
+    color: #343a40;
+    font-size: 1.2rem;
+    margin-top: .25rem;
+    padding: .38rem .75rem;
+    width: calc(100% - 1.5rem - 4px);
+}
+
+.form-group select {
+    appearance:none;
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: .3rem;
+    color: #343a40;
+    font-size: 1.2rem;
+    margin-top: .25rem;
+    padding: .38rem .75rem;
+    text-align: center;
+    width: 100%;
+}
+
+input[type="file"] {
+    align-items: center;
+    color: red;
+    height: 2rem;
+    display: flex;
+    padding: 0;
+    width: 100%;
+}
+
+input[type="file"]::before {
+    background-color: #fff;
+    appearance: none;
+    color: #343a40;
+    content: "Choose File";
+    height: 1.2rem;
+    padding: .38rem 0 .5rem;
+    text-align: center;
+    width: 100%;
+    z-index: 1000;
+}
+
+.two-column-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1rem;
+    width: 100%;
+}
+
+
+.feature-list-element {
+    background: #ddd;
+    column-gap: .75rem;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 3rem 3fr;
+    padding: .5rem;
+    transition: .3s;
+    width: calc(100% - 1rem);
+}
+
+.feature-list-element + .feature-list-element {
+    margin-top: 1rem;
+}
+
+.feature-list-element:hover {
+    opacity: .5;
+}
+
+.feature-list-element h5 {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.feature-list-element i {
+    background-color: white;
+    border-radius: 1.5rem;
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    height: 3rem;
+    justify-content: center;
+    width: 3rem;
+}

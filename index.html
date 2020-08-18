@@ -83,6 +83,11 @@
                 width: 100%;
             }
 
+            .stop-scrolling {
+                height: 100%;
+                overflow: hidden;
+            }
+
             /* Header */
             header {
                 /*Custom*/
@@ -96,6 +101,7 @@
                 margin-bottom: 2px;
                 padding: 1rem 1rem;
                 position: relative;
+                transition: .3s;
                 z-index: 1000;
             }
 
@@ -134,7 +140,7 @@
                 position: absolute;
                 right: 0;
                 top: 72px;
-                transition: 3s;
+                transition: .3s;
                 width: 100vw;
             }
 
@@ -319,8 +325,8 @@
                     width: 200px;
                 }
 
-                #home .btn + .btn {
-                    margin-left: 1rem;
+                #appStore {
+                    margin-right: 1rem;
                 }
 
                 footer .links-container{
@@ -397,7 +403,7 @@
 
         <!-- HEADER -->
         <header>
-            <button id="footer-edit" class="builder builder-btn">
+            <button onclick="showModal('modalHeader')" id="footer-edit" class="builder builder-btn">
                 <i class="fa fa-edit"></i>
             </button>
             <div id="logo">
@@ -415,7 +421,7 @@
 
         <!-- HOME -->
         <section id="home">
-            <button id="home-edit" class="builder builder-btn">
+            <button onclick="showModal('modalHome')" id="home-edit" class="builder builder-btn">
                 <i class="fa fa-edit"></i>
             </button>
             <div class="container">
@@ -428,11 +434,11 @@
                         
                     </h5>
                     <div class="btn-container">
-                        <a href="#" class="btn">
+                        <a id="appStore" href="#" class="btn">
                             <i class="fa fa-apple mr-3"></i>
                             App Store
                         </a>
-                        <a href="#" class="btn">
+                        <a id="googlePlay" href="#" class="btn">
                             <i class="fa fa-android mr-3"></i>
                             Google Play
                         </a>
@@ -449,7 +455,7 @@
 
         <!-- ABOUT -->
         <section id="about">
-            <button id="about-edit" class="builder builder-btn">
+            <button onclick="showModal('modalAbout')" id="about-edit" class="builder builder-btn">
                 <i class="fa fa-edit"></i>
             </button>
             <div class="container">
@@ -462,34 +468,12 @@
 
         <!-- FEATURES -->
         <section id="features">
-            <button id="features-edit" class="builder builder-btn">
+            <button onclick="showModal('modalFeatures')" id="features-edit" class="builder builder-btn">
                 <i class="fa fa-edit"></i>
             </button>
             <div class="container">
                 <h1>Features</h1>
                 <div id="features-container">
-
-                    <div class="feature-item">
-                        <i class="fa fa-map-marker"></i>
-                        <h3>Location</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, 
-                            consectetur adipiscing elit, 
-                            sed do eiusmod tempor incididunt 
-                            ut labore et dolore magna aliqua.
-                        </p>
-                    </div>
-
-                    <div class="feature-item">
-                        <i class="fa fa-map-marker"></i>
-                        <h3>Location</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, 
-                            consectetur adipiscing elit, 
-                            sed do eiusmod tempor incididunt 
-                            ut labore et dolore magna aliqua.
-                        </p>
-                    </div>
 
                     <div class="feature-item">
                         <i class="fa fa-map-marker"></i>
@@ -520,12 +504,269 @@
             </small>
         </footer>
 
+        <!-- Builder -->
+        <div id="modalHeader" class="builder modal">
+            <div class="modal-content">
+                <i onclick="closeModal('modalHeader')" class="fa fa-times close"></i>
+                <h3>Header</h3>
+                <hr>
+                <div class="form">
+                    <div class="form-group">
+                        <label for="pageTitle">Page Title</label>
+                        <input type="text" id="pageTitle" />
+                    </div>
+
+                    <div class="two-column-container">
+                        <div class="form-group">
+                            <label for="headerFontColor">Font Color</label>
+                            <input  type="color" id="headerFontColor" />
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="headerBackground">Background</label>
+                            <input type="color" id="headerBackground" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="logoImg">Logo Image</label>
+                        <input type="file" id="logoImg" />
+                    </div>
+                </div>
+                <div class="buttons-container">
+                    <button onclick="closeModal('modalHeader')" class="secondary">Close</button>
+                    <button onclick="headerSave()" class="primary">Save</button>
+                </div>
+                
+            </div>
+        </div>
+
+        <div id="modalHome" class="builder modal">
+            <div class="modal-content">
+                <i onclick="closeModal('modalHome')" class="fa fa-times close"></i>
+                <h3>Home</h3>
+                <hr>
+                <div class="form">
+                    <div class="form-group">
+                        <label for="homeBackground">Background</label>
+                        <input type="color" id="homeBackground" />
+                    </div>
+                    <div class="form-group">
+                        <label for="homeAppPrint">App Print</label>
+                        <input type="file" id="homeAppPrint" />
+                    </div>
+                    <div>
+                        <h4>Title</h4>
+                        <hr>
+                        <div class="form-group">
+                            <label for="homeTitleText">Text</label>
+                            <input type="text" id="homeTitleText" />
+                        </div>
+                        <div class="form-group">
+                            <label for="homeTitleColor">Font Color</label>
+                            <input  type="color" id="homeTitleColor" />
+                        </div>
+                    </div>
+                    <div>
+                        <h4>Description</h4>
+                        <hr>
+                        <div class="form-group">
+                            <label for="homeDescriptionText">Text</label>
+                            <input type="text" id="homeDescriptionText" />
+                        </div>
+                        <div class="form-group">
+                            <label for="homeDescriptionColor">Font Color</label>
+                            <input  type="color" id="homeDescriptionColor" />
+                        </div>
+                    </div>
+                    <div>
+                        <h4>App Store Button</h4>
+                        <hr>
+                        <div class="two-column-container">
+                            <div class="form-group">
+                                <label for="appStoreDisplay">Display</label>
+                                <select id="appStoreDisplay">
+                                    <option value="flex">SHOW</option>
+                                    <option value="none">HIDE</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="appStoreLink">Link</label>
+                                <input type="text" id="appStoreLink" />
+                            </div>
+                        </div>
+                        <div class="two-column-container">
+                            <div class="form-group">
+                                <label for="appStoreColor">Font Color</label>
+                                <input  type="color" id="appStoreColor" />
+                            </div>
+                            <div class="form-group">
+                                <label for="appStoreBackground">Background</label>
+                                <input type="color" id="appStoreBackground" />
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4>Google Play Button</h4>
+                        <hr>
+                        <div class="two-column-container">
+                            <div class="form-group">
+                                <label for="googlePlayDisplay">Display</label>
+                                <select id="googlePlayDisplay">
+                                    <option value="flex">SHOW</option>
+                                    <option value="none">HIDE</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="googlePlayLink">Link</label>
+                                <input type="text" id="googlePlayLink" />
+                            </div>
+                        </div>
+                        <div class="two-column-container">
+                            <div class="form-group">
+                                <label for="googlePlayColor">Font Color</label>
+                                <input  type="color" id="googlePlayColor" />
+                            </div>
+                            <div class="form-group">
+                                <label for="googlePlayBackground">Background</label>
+                                <input type="color" id="googlePlayBackground" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modalAbout" class="builder modal">
+            <div class="modal-content">
+                <i onclick="closeModal('modalAbout')" class="fa fa-times close"></i>
+                <h3>About</h3>
+                <hr>
+                <div class="form">
+                    <div class="form-group">
+                        <label for="aboutBackground">Background</label>
+                        <input type="color" id="aboutBackground" />
+                    </div>
+                    <div>
+                        <h4>Title</h4>
+                        <hr>
+                        <div class="form-group">
+                            <label for="aboutTitleColor">Font Color</label>
+                            <input  type="color" id="aboutTitleColor" />
+                        </div>
+                    </div>
+                    <div>
+                        <h4>Description</h4>
+                        <hr>
+                        <div class="form-group">
+                            <label for="aboutDescriptionText">Text</label>
+                            <input type="text" id="aboutDescriptionText" />
+                        </div>
+                        <div class="form-group">
+                            <label for="aboutDescriptionColor">Font Color</label>
+                            <input  type="color" id="aboutDescriptionColor" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modalFeatures" class="builder modal">
+            <div class="modal-content">
+                <i onclick="closeModal('modalFeatures')" class="fa fa-times close"></i>
+                <h3>Features</h3>
+                <hr>
+                <div class="form">
+                    <div class="form-group">
+                        <label for="featuresBackground">Background</label>
+                        <input type="color" id="featuresBackground" />
+                    </div>
+                    <div>
+                        <h4>Icon</h4>
+                        <hr>
+                        <div class="two-column-container">
+                            <div class="form-group">
+                                <label for="featuresBackground">Color</label>
+                                <input type="color" id="featuresBackground" />
+                            </div>
+                            <div class="form-group">
+                                <label for="featuresBackground">Background</label>
+                                <input type="color" id="featuresBackground" />
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4>Title</h4>
+                        <hr>
+                        <div class="two-column-container">
+                            <div class="form-group">
+                                <label for="featuresBackground">Color</label>
+                                <input type="color" id="featuresBackground" />
+                            </div>
+                            <div class="form-group">
+                                <label for="featuresBackground">Background</label>
+                                <input type="color" id="featuresBackground" />
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4>Description</h4>
+                        <hr>
+                        <div class="two-column-container">
+                            <div class="form-group">
+                                <label for="featuresBackground">Color</label>
+                                <input type="color" id="featuresBackground" />
+                            </div>
+                            <div class="form-group">
+                                <label for="featuresBackground">Background</label>
+                                <input type="color" id="featuresBackground" />
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4>Features List</h4>
+                        <hr>
+                        <div id="features-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modalEditFeature" class="builder modal">
+            <div class="modal-content">
+                <i onclick="closeModal('modalEditFeature')" class="fa fa-times close"></i>
+                <h3>Feature Edit</h3>
+                <hr>
+                <div class="form">
+                    <div class="form-group">
+                        <label for="featuresBackground">Icon</label>
+                        <input type="text" id="featuresBackground" />
+                    </div>
+                    <div class="form-group">
+                        <label for="editFeatureTitle">Title</label>
+                        <input type="text" id="editFeatureTitle" />
+                    </div>
+                    <div class="form-group">
+                        <label for="editFeatureDescription">Description</label>
+                        <input type="text" id="editFeatureDescription" />
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
 
 
          <!-- SCRIPT -->
         <script>
+            console.log(  )
             var menuElement = document.querySelector('#menu');
-            menuElement.onclick = function(){menu()};
+            menuElement.onclick = function(){
+                if(window.innerWidth < 768){
+                    menu();
+                }
+            };
             function menu(){
                 var display = window.getComputedStyle(menuElement).getPropertyValue('display');
                 if(display == 'none'){
