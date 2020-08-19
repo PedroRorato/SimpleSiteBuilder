@@ -278,13 +278,18 @@ function deleteFeatureModal(index){
     var feature = features[index];
     var featureName = document.querySelector('#modalDeleteFeature b');
     featureName.innerHTML = feature.title;
-    var deleteBtn = document.querySelector('#deleteFeatureBtn');
+    var deleteBtn = document.querySelector('#deleteFeature');
     deleteBtn.setAttribute('onclick', 'deleteFeature('+index+')');
     showModal('modalDeleteFeature');
 }
 //Delete Feature
 function deleteFeature(index){
-    console.log('deletado: ', index)
+    console.log('deletado: ', index);
+    features.splice(index, 1);
+    console.log(features);
+    renderFeaturesList();
+    closeModal('modalDeleteFeature', false);
+    closeModal('modalEditFeature', false);
 }
 
 
