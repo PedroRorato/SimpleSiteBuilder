@@ -82,6 +82,15 @@ header, #home, #about, #features, footer {
     margin-left: .75rem;
 }
 
+.danger{
+    background: #dc3545;
+}
+
+#deleteFeatureBtn{
+    margin-top: .75rem;
+    width: 100%;
+}
+
 .primary{
     background: #007bff;
 }
@@ -110,11 +119,11 @@ header, #home, #about, #features, footer {
 }
 
 .form {
-    border: 1px solid #ddd;
-    max-height: calc(90vh - 200px);
+    border: 2px solid #bbb;
+    max-height: calc(95vh - 200px);
     padding: 0 .75rem 1rem;
     overflow-y: scroll;
-    width: calc(100% - 1.5rem);
+    width: calc(100% - 1.5rem - 4px);
 }
 
 .form-group {
@@ -212,4 +221,40 @@ input[type="file"]::before {
     height: 3rem;
     justify-content: center;
     width: 3rem;
+}
+
+.icons-list {
+    border: 2px solid #bbb;
+    height: 170px;
+    overflow-y: scroll;
+    padding: .5rem;
+    width: calc(100% - 1rem - 4px);
+
+}
+
+.icons-list button {
+    border: 1px solid black;
+    color: black;
+    margin: .25rem .125rem;
+    padding: 0;
+    height: 40px;
+    width: 40px;
+    transition: .3s;
+}
+
+.icons-list button:focus {
+    background: #007bff;
+    color: white;
+}
+
+
+.icons-list button:hover {
+    opacity: .5;
+}
+
+.icons-list button + button{
+    margin-left: .125rem;
+}
+.icon-label {
+    display: inline;
 }

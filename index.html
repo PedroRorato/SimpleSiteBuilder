@@ -473,18 +473,7 @@
             </button>
             <div class="container">
                 <h1>Features</h1>
-                <div id="features-container">
-                    <div class="feature-item">
-                        <i class="fa fa-map-marker"></i>
-                        <h3>Location</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, 
-                            consectetur adipiscing elit, 
-                            sed do eiusmod tempor incididunt 
-                            ut labore et dolore magna aliqua.
-                        </p>
-                    </div>
-                </div>
+                <div id="features-container"></div>
             </div>
         </section>
 
@@ -775,12 +764,16 @@
         <div id="modalEditFeature" class="builder modal">
             <div class="modal-content">
                 <i onclick="closeModal('modalEditFeature', false)" class="fa fa-times close"></i>
-                <h3>Feature Edit</h3>
+                <h3>Edit Feature</h3>
                 <hr>
                 <div class="form">
                     <div class="form-group">
-                        <label for="featuresBackground">Icon</label>
-                        <input type="text" id="featuresBackground" />
+                            <div class="icon-label">
+                                Icon: 
+                                <i  class="fa fa-edit"></i>
+                            </div>
+                            <input type="hidden" id="editFeatureIcon" />
+                        <div class="icons-list"></div>
                     </div>
                     <div class="form-group">
                         <label for="editFeatureTitle">Title</label>
@@ -790,10 +783,61 @@
                         <label for="editFeatureDescription">Description</label>
                         <input type="text" id="editFeatureDescription" />
                     </div>
+                    <div class="form-group">
+                        <button id="deleteFeatureBtn" class="danger">
+                            Delete Feature 
+                        </button>
+                    </div>
                 </div>
                 <div class="buttons-container">
-                    <button onclick="closeModal('modalEditFeature', false)" class="secondary">Close</button>
+                    <button onclick="closeModal('modalEditFeature', false)" class="secondary">
+                        Close</button>
                     <button id="editFeatureSaveBtn" class="primary">Save</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="modalDeleteFeature" class="builder modal">
+            <div class="modal-content">
+                <i onclick="closeModal('modalDeleteFeature', false)" class="fa fa-times close"></i>
+                <h3>Delete Feature</h3>
+                <hr>
+                <p>Do you really want to delete the feature "<b></b>" ?</p>
+                <div class="buttons-container">
+                    <button onclick="closeModal('modalDeleteFeature', false)" class="secondary">
+                        Close</button>
+                    <button id="deleteFeatureBtn" class="danger">Delete</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="modalCreateFeature" class="builder modal">
+            <div class="modal-content">
+                <i onclick="closeModal('modalCreateFeature', false)" class="fa fa-times close"></i>
+                <h3>Create Feature</h3>
+                <hr>
+                <div class="form">
+                    <div class="form-group">
+                            <div class="icon-label">
+                                Icon: 
+                                <i  class="fa fa-trash"></i>
+                            </div>
+                            <input type="hidden" id="createFeatureIcon" />
+                        <div class="icons-list"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="createFeatureTitle">Title</label>
+                        <input type="text" id="createFeatureTitle" />
+                    </div>
+                    <div class="form-group">
+                        <label for="createFeatureDescription">Description</label>
+                        <input type="text" id="createFeatureDescription" />
+                    </div>
+                </div>
+                <div class="buttons-container">
+                    <button onclick="closeModal('modalCreateFeature', false)" class="secondary">
+                        Close</button>
+                    <button id="createFeatureBtn" class="primary">Create</button>
                 </div>
             </div>
         </div>
