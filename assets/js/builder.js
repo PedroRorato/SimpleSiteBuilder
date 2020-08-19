@@ -242,13 +242,11 @@ function setIcon(modal, icon){
     newIconElement.setAttribute('class', 'fa '+icon);
     modalDiv.querySelector('.icon-label').appendChild(newIconElement);
     //Set Input Value
-    editFeatureIconInput.value = icon;
+    modalDiv.querySelector('.feature-icon').value = icon;
 }
 
-
-
 //Edit Feature Elements
-var editFeatureIconInput = document.querySelector('#editFeatureIcon');
+var editFeatureIconInput = document.querySelector('#modalEditFeature .feature-icon');
 var editFeatureTitleInput = document.querySelector('#editFeatureTitle');
 var editFeatureDescriptionInput = document.querySelector('#editFeatureDescription');
 //Edit Feature Modal
@@ -290,6 +288,26 @@ function deleteFeature(index){
     renderFeaturesList();
     closeModal('modalDeleteFeature', false);
     closeModal('modalEditFeature', false);
+}
+
+
+//Create Feature
+function createFeature(){
+    //Inputs
+    var createFeatureIconInput = document.querySelector('#modalCreateFeature .feature-icon');
+    var createFeatureTitleInput = document.querySelector('#createFeatureTitle');
+    var createFeatureDescriptionInput = document.querySelector('#createFeatureDescription');
+    //Create New Feature
+    var newFeature = {
+        icon: createFeatureIconInput.value,
+        title: createFeatureTitleInput.value,
+        description: createFeatureDescriptionInput.value
+    };
+    //Add
+    features.push(newFeature);
+
+    renderFeaturesList();
+    closeModal('modalCreateFeature', false);
 }
 
 

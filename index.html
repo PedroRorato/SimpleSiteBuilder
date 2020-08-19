@@ -749,13 +749,18 @@
                     </div>
                     
                     <div>
-                        <h4>Features List</h4>
+                        <h4>Features List </h4>
                         <hr>
+                        <button onclick="showModal('modalCreateFeature')" class="primary add">
+                            <i class="fa fa-plus"></i>Add Feature
+                        </button>
                         <div id="features-list"></div>
                     </div>
                 </div>
                 <div class="buttons-container">
-                    <button onclick="closeModal('modalFeatures')" class="secondary">Close</button>
+                    <button onclick="closeModal('modalFeatures')" class="secondary">
+                        Close
+                    </button>
                     <button onclick="featuresStyleSave()" class="primary">Save</button>
                 </div>
             </div>
@@ -768,11 +773,11 @@
                 <hr>
                 <div class="form">
                     <div class="form-group">
-                            <div class="icon-label">
-                                Icon: 
-                                <i  class="fa fa-edit"></i>
-                            </div>
-                            <input type="hidden" id="editFeatureIcon" />
+                        <div class="icon-label">
+                            Icon: 
+                            <i  class="fa fa-edit"></i>
+                        </div>
+                        <input type="hidden" class="feature-icon" />
                         <div class="icons-list"></div>
                     </div>
                     <div class="form-group">
@@ -818,11 +823,11 @@
                 <hr>
                 <div class="form">
                     <div class="form-group">
-                            <div class="icon-label">
-                                Icon: 
-                                <i  class="fa fa-trash"></i>
-                            </div>
-                            <input type="hidden" id="createFeatureIcon" />
+                        <div class="icon-label">
+                            Icon: 
+                            <i  class="fa fa-linux"></i>
+                        </div>
+                        <input type="hidden" value="fa-linux" class="feature-icon" />
                         <div class="icons-list"></div>
                     </div>
                     <div class="form-group">
@@ -837,7 +842,7 @@
                 <div class="buttons-container">
                     <button onclick="closeModal('modalCreateFeature', false)" class="secondary">
                         Close</button>
-                    <button id="createFeatureBtn" class="primary">Create</button>
+                    <button onclick="createFeature()" class="primary">Create</button>
                 </div>
             </div>
         </div>

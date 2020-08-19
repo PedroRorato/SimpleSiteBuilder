@@ -21,6 +21,14 @@ nav p {
     margin: 0 1rem 0 0;
 }
 
+button {
+    transition: .3s;
+}
+
+button:hover {
+    opacity: .5;
+}
+
 header, #home, #about, #features, footer {
     position: relative;
 }
@@ -84,11 +92,6 @@ header, #home, #about, #features, footer {
 
 .danger{
     background: #dc3545;
-}
-
-#deleteFeatureBtn{
-    margin-top: .75rem;
-    width: 100%;
 }
 
 .primary{
@@ -206,6 +209,21 @@ input[type="file"]::before {
     opacity: .5;
 }
 
+#deleteFeatureBtn{
+    margin-top: .75rem;
+    width: 100%;
+}
+
+.add {
+    margin-bottom: 1rem;
+    width: 100%;
+
+}
+
+.add i {
+    margin-right: .5rem;
+}
+
 .feature-list-element h5 {
     height: 100%;
     display: flex;
@@ -248,9 +266,6 @@ input[type="file"]::before {
 }
 
 
-.icons-list button:hover {
-    opacity: .5;
-}
 
 .icons-list button + button{
     margin-left: .125rem;
