@@ -268,10 +268,10 @@
             .feature-item i {
                 background-color: white;
                 border-radius: 4rem;
-                font-size: 6rem;
+                font-size: 5rem;
                 margin-bottom: 1rem;
-                padding-bottom: 1rem;
-                padding-top: 1rem;
+                padding-bottom: 1.5rem;
+                padding-top: 1.5rem;
                 text-align: center;
                 width: 8rem;
             }
@@ -282,19 +282,19 @@
             /* Footer */
             footer {
                 background-color: #343a40;
+                color: white;
                 text-align: center;
             }
 
             footer small {
-                color: #ccc;
                 font-size: 1rem;
                 margin: 1rem;
+                opacity: .7;
             }
 
             footer small a{
-                color: #ccc;
+                color: white;
                 font-size: 1rem;
-                
             }
 
             .links-container{
@@ -474,7 +474,6 @@
             <div class="container">
                 <h1>Features</h1>
                 <div id="features-container">
-
                     <div class="feature-item">
                         <i class="fa fa-map-marker"></i>
                         <h3>Location</h3>
@@ -485,14 +484,13 @@
                             ut labore et dolore magna aliqua.
                         </p>
                     </div>
-                    
                 </div>
             </div>
         </section>
 
         <!-- FOOTER -->
         <footer>
-            <button id="footer-edit" class="builder builder-btn">
+            <button onclick="showModal('modalFooter')" id="footer-edit" class="builder builder-btn">
                 <i class="fa fa-edit"></i>
             </button>
             <div class="links-container">
@@ -513,24 +511,24 @@
                 <div class="form">
                     <div class="form-group">
                         <label for="pageTitle">Page Title</label>
-                        <input type="text" id="pageTitle" />
+                        <input type="text" value="App" id="pageTitle" />
                     </div>
 
                     <div class="two-column-container">
                         <div class="form-group">
                             <label for="headerFontColor">Font Color</label>
-                            <input  type="color" id="headerFontColor" />
+                            <input  type="color" value="#343a40" id="headerFontColor" />
                         </div>
     
                         <div class="form-group">
                             <label for="headerBackground">Background</label>
-                            <input type="color" id="headerBackground" />
+                            <input type="color" value="#ffffff" id="headerBackground" />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="logoImg">Logo Image</label>
-                        <input type="file" id="logoImg" />
+                        <input type="file" onchange="loadFileName(this)" id="logoImg" />
                     </div>
                 </div>
                 <div class="buttons-container">
@@ -549,7 +547,7 @@
                 <div class="form">
                     <div class="form-group">
                         <label for="homeBackground">Background</label>
-                        <input type="color" id="homeBackground" />
+                        <input type="color" value="#dde1e7" id="homeBackground" />
                     </div>
                     <div class="form-group">
                         <label for="homeAppPrint">App Print</label>
@@ -560,11 +558,11 @@
                         <hr>
                         <div class="form-group">
                             <label for="homeTitleText">Text</label>
-                            <input type="text" id="homeTitleText" />
+                            <input type="text" value="App Name" id="homeTitleText" />
                         </div>
                         <div class="form-group">
                             <label for="homeTitleColor">Font Color</label>
-                            <input  type="color" id="homeTitleColor" />
+                            <input  type="color" value="#343a40" id="homeTitleColor" />
                         </div>
                     </div>
                     <div>
@@ -572,11 +570,11 @@
                         <hr>
                         <div class="form-group">
                             <label for="homeDescriptionText">Text</label>
-                            <input type="text" id="homeDescriptionText" />
+                            <input type="text" value="Short description of your App... Lorem ipsum dolor sit amet, consectetur adipiscing elit." id="homeDescriptionText" />
                         </div>
                         <div class="form-group">
                             <label for="homeDescriptionColor">Font Color</label>
-                            <input  type="color" id="homeDescriptionColor" />
+                            <input  type="color" value="#343a40" id="homeDescriptionColor" />
                         </div>
                     </div>
                     <div>
@@ -592,17 +590,17 @@
                             </div>
                             <div class="form-group">
                                 <label for="appStoreLink">Link</label>
-                                <input type="text" id="appStoreLink" />
+                                <input type="text" value="#" id="appStoreLink" />
                             </div>
                         </div>
                         <div class="two-column-container">
                             <div class="form-group">
                                 <label for="appStoreColor">Font Color</label>
-                                <input  type="color" id="appStoreColor" />
+                                <input  type="color" value="#ffffff" id="appStoreColor" />
                             </div>
                             <div class="form-group">
                                 <label for="appStoreBackground">Background</label>
-                                <input type="color" id="appStoreBackground" />
+                                <input type="color" value="#5b79fb" id="appStoreBackground" />
                             </div>
                         </div>
                     </div>
@@ -619,20 +617,24 @@
                             </div>
                             <div class="form-group">
                                 <label for="googlePlayLink">Link</label>
-                                <input type="text" id="googlePlayLink" />
+                                <input type="text" value="#" id="googlePlayLink" />
                             </div>
                         </div>
                         <div class="two-column-container">
                             <div class="form-group">
                                 <label for="googlePlayColor">Font Color</label>
-                                <input  type="color" id="googlePlayColor" />
+                                <input  type="color" value="#ffffff" id="googlePlayColor" />
                             </div>
                             <div class="form-group">
                                 <label for="googlePlayBackground">Background</label>
-                                <input type="color" id="googlePlayBackground" />
+                                <input type="color" value="#5b79fb" id="googlePlayBackground" />
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="buttons-container">
+                    <button onclick="closeModal('modalHome')" class="secondary">Close</button>
+                    <button onclick="homeSave()" class="primary">Save</button>
                 </div>
             </div>
         </div>
@@ -645,14 +647,14 @@
                 <div class="form">
                     <div class="form-group">
                         <label for="aboutBackground">Background</label>
-                        <input type="color" id="aboutBackground" />
+                        <input type="color" value="#ffffff" id="aboutBackground" />
                     </div>
                     <div>
                         <h4>Title</h4>
                         <hr>
                         <div class="form-group">
                             <label for="aboutTitleColor">Font Color</label>
-                            <input  type="color" id="aboutTitleColor" />
+                            <input  type="color" value="#343a40" id="aboutTitleColor" />
                         </div>
                     </div>
                     <div>
@@ -660,13 +662,58 @@
                         <hr>
                         <div class="form-group">
                             <label for="aboutDescriptionText">Text</label>
-                            <input type="text" id="aboutDescriptionText" />
+                            <input type="text" value="Long description of your App, but not so much... Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." id="aboutDescriptionText" />
                         </div>
                         <div class="form-group">
                             <label for="aboutDescriptionColor">Font Color</label>
-                            <input  type="color" id="aboutDescriptionColor" />
+                            <input  type="color" value="#343a40" id="aboutDescriptionColor" />
                         </div>
                     </div>
+                </div>
+                <div class="buttons-container">
+                    <button onclick="closeModal('modalAbout')" class="secondary">Close</button>
+                    <button onclick="aboutSave()" class="primary">Save</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="modalFooter" class="builder modal">
+            <div class="modal-content">
+                <i onclick="closeModal('modalFooter')" class="fa fa-times close"></i>
+                <h3>Footer</h3>
+                <hr>
+                <div class="form">
+                    <div class="two-column-container">
+                        <div class="form-group">
+                            <label for="footerColor">Font Color</label>
+                            <input  type="color" value="#ffffff" id="footerColor" />
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="footerBackground">Background</label>
+                            <input type="color" value="#343a40" id="footerBackground" />
+                        </div>
+                    </div>
+                    <div>
+                        <h4>Privacy Policy</h4>
+                        <hr>
+                        <div class="form-group">
+                            <label for="privacyLink">Link</label>
+                            <input  type="text" placeholder="https://www..." id="privacyLink" />
+                        </div>
+                    </div>
+                    <div>
+                        <h4>Terms of Service</h4>
+                        <hr>
+                        <div class="form-group">
+                            <label for="termsLink">Link</label>
+                            <input  type="text" placeholder="https://www..." id="termsLink" />
+                        </div>
+                    </div>
+                </div>
+                <div class="buttons-container">
+                    <button onclick="closeModal('modalFooter')" class="secondary">Close</button>
+                    <button onclick="footerSave()" class="primary">Save</button>
                 </div>
             </div>
         </div>
@@ -679,48 +726,36 @@
                 <div class="form">
                     <div class="form-group">
                         <label for="featuresBackground">Background</label>
-                        <input type="color" id="featuresBackground" />
+                        <input type="color" value="#dde1e7" id="featuresBackground" />
                     </div>
                     <div>
                         <h4>Icon</h4>
                         <hr>
                         <div class="two-column-container">
                             <div class="form-group">
-                                <label for="featuresBackground">Color</label>
-                                <input type="color" id="featuresBackground" />
+                                <label for="featuresIconColor">Color</label>
+                                <input type="color" value="#343a40" id="featuresIconColor" />
                             </div>
                             <div class="form-group">
-                                <label for="featuresBackground">Background</label>
-                                <input type="color" id="featuresBackground" />
+                                <label for="featuresIconBackground">Background</label>
+                                <input type="color" value="#ffffff" id="featuresIconBackground" />
                             </div>
                         </div>
                     </div>
                     <div>
                         <h4>Title</h4>
                         <hr>
-                        <div class="two-column-container">
-                            <div class="form-group">
-                                <label for="featuresBackground">Color</label>
-                                <input type="color" id="featuresBackground" />
-                            </div>
-                            <div class="form-group">
-                                <label for="featuresBackground">Background</label>
-                                <input type="color" id="featuresBackground" />
-                            </div>
+                        <div class="form-group">
+                            <label for="featuresTitleColor">Font Color</label>
+                            <input type="color" value="#343a40" id="featuresTitleColor" />
                         </div>
                     </div>
                     <div>
                         <h4>Description</h4>
                         <hr>
-                        <div class="two-column-container">
-                            <div class="form-group">
-                                <label for="featuresBackground">Color</label>
-                                <input type="color" id="featuresBackground" />
-                            </div>
-                            <div class="form-group">
-                                <label for="featuresBackground">Background</label>
-                                <input type="color" id="featuresBackground" />
-                            </div>
+                        <div class="form-group">
+                            <label for="featuresDescriptionColor">Font Color</label>
+                            <input type="color" value="#343a40" id="featuresDescriptionColor" />
                         </div>
                     </div>
                     
@@ -730,12 +765,16 @@
                         <div id="features-list"></div>
                     </div>
                 </div>
+                <div class="buttons-container">
+                    <button onclick="closeModal('modalFeatures')" class="secondary">Close</button>
+                    <button onclick="featuresStyleSave()" class="primary">Save</button>
+                </div>
             </div>
         </div>
 
         <div id="modalEditFeature" class="builder modal">
             <div class="modal-content">
-                <i onclick="closeModal('modalEditFeature')" class="fa fa-times close"></i>
+                <i onclick="closeModal('modalEditFeature', false)" class="fa fa-times close"></i>
                 <h3>Feature Edit</h3>
                 <hr>
                 <div class="form">
@@ -751,16 +790,17 @@
                         <label for="editFeatureDescription">Description</label>
                         <input type="text" id="editFeatureDescription" />
                     </div>
-                    
                 </div>
-                
+                <div class="buttons-container">
+                    <button onclick="closeModal('modalEditFeature', false)" class="secondary">Close</button>
+                    <button id="editFeatureSaveBtn" class="primary">Save</button>
+                </div>
             </div>
         </div>
 
 
          <!-- SCRIPT -->
         <script>
-            console.log(  )
             var menuElement = document.querySelector('#menu');
             menuElement.onclick = function(){
                 if(window.innerWidth < 768){

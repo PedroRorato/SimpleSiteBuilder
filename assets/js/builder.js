@@ -20,17 +20,16 @@ function download(){
     a.setAttribute('href', window.URL.createObjectURL(blob));
     a.click();
 }
-///Open Modal
 function showModal(id){
     document.getElementById(id).style.display = 'flex';
     document.body.classList.add("stop-scrolling");
 }
-///Close Modal
-function closeModal(id) {
+function closeModal(id, showScroll = true) {
     document.getElementById(id).style.display = 'none';
-    document.body.classList.remove("stop-scrolling");
+    if(showScroll){
+        document.body.classList.remove("stop-scrolling");
+    }
 }
-///Base64 image
 function base64(input, element){
     var reader = new FileReader();
     reader.onload = function(e) {
@@ -39,174 +38,203 @@ function base64(input, element){
     reader.readAsDataURL(input.files[0]);
 }
 
-
-//Form Handlers
+//Forms
 ///Header
-
-////Page Title
-var pageTitleElement = document.querySelector('title');
-var pageTitleInput = document.querySelector('#pageTitle');
-pageTitleInput.onkeyup = function(){
+function headerSave(){
+    //Title
+    var pageTitleElement = document.querySelector('title');
+    var pageTitleInput = document.querySelector('#pageTitle');
     pageTitleElement.innerHTML = pageTitleInput.value;
-}
-////Header A Color
-var headerAElements = document.querySelectorAll('#menu a');
-var headerAInput = document.querySelector('#headerFontColor');
-headerAInput.onchange = function(){
+    //Menu
+    var headerAElements = document.querySelectorAll('#menu a');
+    var headerAInput = document.querySelector('#headerFontColor');
     headerAElements.forEach(function(element){
         element.style.color = headerAInput.value;
     });
-}
-////Header Background
-var headerElement = document.querySelector('header');
-var headerMenuElement = document.querySelector('#menu');
-var headerInput = document.querySelector('#headerBackground');
-headerInput.onchange = function(){
+    var headerElement = document.querySelector('header');
+    var headerMenuElement = document.querySelector('#menu');
+    var headerInput = document.querySelector('#headerBackground');
     headerElement.style.background = headerInput.value;
     headerMenuElement.style.background = headerInput.value;
-}
-////Header Logo
-var logoElement = document.querySelector('#logo img');
-var logoInput = document.querySelector('#logoImg');
-logoInput.onchange = function(){
-    base64(logoInput, logoElement);
-}
+    //Logo
+    var logoElement = document.querySelector('#logo img');
+    var logoInput = document.querySelector('#logoImg');
+    if(logoInput.files[0]){
+        base64(logoInput, logoElement);
+    }
 
+    closeModal('modalHeader');
+}
 ///Home
-var homeElement = document.querySelector('#home');
-var homeBackgroundInput = document.querySelector('#homeBackground');
-homeBackgroundInput.onchange = function(){
+function homeSave() {
+    //Background
+    var homeElement = document.querySelector('#home');
+    var homeBackgroundInput = document.querySelector('#homeBackground');
     homeElement.style.background = homeBackgroundInput.value;
-}
-////App Print
-var appPrintElement = document.querySelector('#mobile-screen');
-var homeAppPrintInput = document.querySelector('#homeAppPrint');
-homeAppPrintInput.onchange = function(){
-    base64(homeAppPrintInput, appPrintElement);
-}
-////Home Title
-var homeTitleElement = document.querySelector('#home h1');
-/////Home Title Text
-var homeTitleTextInput = document.querySelector('#homeTitleText');
-homeTitleTextInput.onkeyup = function(){
+    //Print
+    var appPrintElement = document.querySelector('#mobile-screen');
+    var homeAppPrintInput = document.querySelector('#homeAppPrint');
+    if(homeAppPrintInput.files[0]){
+        base64(homeAppPrintInput, appPrintElement);
+    }
+    //Title
+    var homeTitleElement = document.querySelector('#home h1');
+    var homeTitleTextInput = document.querySelector('#homeTitleText');
     homeTitleElement.innerHTML = homeTitleTextInput.value;
-}
-/////Home Title Color
-var homeTitleColorInput = document.querySelector('#homeTitleColor');
-homeTitleColorInput.onchange = function(){
+    var homeTitleColorInput = document.querySelector('#homeTitleColor');
     homeTitleElement.style.color = homeTitleColorInput.value;
-}
-////Home Description
-var homeDescriptionElement = document.querySelector('#home h5');
-/////Home Description Text
-var homeDescriptionTextInput = document.querySelector('#homeDescriptionText');
-homeDescriptionTextInput.onkeyup = function(){
-    console.log('foi')
+    //Description
+    var homeDescriptionElement = document.querySelector('#home h5');
+    var homeDescriptionTextInput = document.querySelector('#homeDescriptionText');
     homeDescriptionElement.innerHTML = homeDescriptionTextInput.value;
-}
-/////Home Description Color
-var homeDescriptionColorInput = document.querySelector('#homeDescriptionColor');
-homeDescriptionColorInput.onchange = function(){
+    var homeDescriptionColorInput = document.querySelector('#homeDescriptionColor');
     homeDescriptionElement.style.color = homeDescriptionColorInput.value;
-}
-////AppStore
-var appStoreElement = document.querySelector('#appStore');
-/////AppStore Display
-var appStoreDisplayInput = document.querySelector('#appStoreDisplay');
-appStoreDisplayInput.onchange = function(){
+    //AppStore
+    var appStoreElement = document.querySelector('#appStore');
+    var appStoreDisplayInput = document.querySelector('#appStoreDisplay');
     appStoreElement.style.display = appStoreDisplayInput.value;
-}
-/////AppStore Link
-var appStoreLinkInput = document.querySelector('#appStoreLink');
-appStoreLinkInput.onchange = function(){
+    var appStoreLinkInput = document.querySelector('#appStoreLink');
     appStoreElement.setAttribute('href', appStoreLinkInput.value);
-}
-/////AppStore Color
-var appStoreColorInput = document.querySelector('#appStoreColor');
-appStoreColorInput.onchange = function(){
+    var appStoreColorInput = document.querySelector('#appStoreColor');
     appStoreElement.style.color = appStoreColorInput.value;
-}
-/////AppStore Background
-var appStoreBackgroundInput = document.querySelector('#appStoreBackground');
-appStoreBackgroundInput.onchange = function(){
+    var appStoreBackgroundInput = document.querySelector('#appStoreBackground');
     appStoreElement.style.background = appStoreBackgroundInput.value;
-}
-////GooglePlay
-var googlePlayElement = document.querySelector('#googlePlay');
-/////GooglePlay Display
-var googlePlayDisplayInput = document.querySelector('#googlePlayDisplay');
-googlePlayDisplayInput.onchange = function(){
+    ////GooglePlay
+    var googlePlayElement = document.querySelector('#googlePlay');
+    var googlePlayDisplayInput = document.querySelector('#googlePlayDisplay');
     googlePlayElement.style.display = googlePlayDisplayInput.value;
-}
-/////GooglePlay Link
-var googlePlayLinkInput = document.querySelector('#googlePlayLink');
-googlePlayLinkInput.onchange = function(){
+    var googlePlayLinkInput = document.querySelector('#googlePlayLink');
     googlePlayElement.setAttribute('href', googlePlayLinkInput.value);
-}
-/////GooglePlay Color
-var googlePlayColorInput = document.querySelector('#googlePlayColor');
-googlePlayColorInput.onchange = function(){
+    var googlePlayColorInput = document.querySelector('#googlePlayColor');
     googlePlayElement.style.color = googlePlayColorInput.value;
-}
-/////GooglePlay Background
-var googlePlayBackgroundInput = document.querySelector('#googlePlayBackground');
-googlePlayBackgroundInput.onchange = function(){
+    var googlePlayBackgroundInput = document.querySelector('#googlePlayBackground');
     googlePlayElement.style.background = googlePlayBackgroundInput.value;
+
+    closeModal('modalHome')
+}
+///About
+function aboutSave() {
+    //Background
+    var aboutElement = document.querySelector('#about');
+    var aboutBackgroundInput = document.querySelector('#aboutBackground');
+    aboutElement.style.background = aboutBackgroundInput.value;
+    //Title
+    var aboutTitleElement = document.querySelector('#about h1');
+    var aboutTitleColorInput = document.querySelector('#aboutTitleColor');
+    aboutTitleElement.style.color = aboutTitleColorInput.value;
+    //Description
+    var aboutDescriptionElement = document.querySelector('#about p');
+    var aboutDescriptionTextInput = document.querySelector('#aboutDescriptionText');
+    aboutDescriptionElement.innerHTML = aboutDescriptionTextInput.value;
+    var aboutDescriptionColorInput = document.querySelector('#aboutDescriptionColor');
+    aboutDescriptionElement.style.color = aboutDescriptionColorInput.value;
+
+    closeModal('modalAbout');
+}
+///Footer
+function footerSave() {
+    //Background
+    var footerElement = document.querySelector('footer');
+    var footerBackgroundInput = document.querySelector('#footerBackground');
+    footerElement.style.background = footerBackgroundInput.value;
+    //Color
+    var footerLinks = document.querySelectorAll('footer a');
+    var footerColorInput = document.querySelector('#footerColor');
+    footerElement.style.color = footerColorInput.value;
+    footerLinks.forEach(element => {
+        element.style.color = footerColorInput.value;
+    });
+    //Privacy Policy
+    var privacyLinkElement = document.querySelector('.links-container').firstElementChild;
+    var privacyLinkInput = document.querySelector('#privacyLink');
+    privacyLinkElement.setAttribute('href', privacyLinkInput.value);
+    //Terms of Service
+    var termsLinkElement = document.querySelector('.links-container').lastElementChild;
+    var termsLinkInput = document.querySelector('#termsLink');
+    termsLinkElement.setAttribute('href', termsLinkInput.value);
+
+    closeModal('modalFooter')
 }
 
-///About
-var aboutElement = document.querySelector('#about');
-var aboutBackgroundInput = document.querySelector('#aboutBackground');
-aboutBackgroundInput.onchange = function(){
-    aboutElement.style.background = aboutBackgroundInput.value;
-}
-////About Title
-var aboutTitleElement = document.querySelector('#about h1');
-////About Title Color
-var aboutTitleColorInput = document.querySelector('#aboutTitleColor');
-aboutTitleColorInput.onchange = function(){
-    aboutTitleElement.style.color = aboutTitleColorInput.value;
-}
-////About Description
-var aboutDescriptionElement = document.querySelector('#about p');
-/////Home Title Text
-var aboutDescriptionTextInput = document.querySelector('#aboutDescriptionText');
-aboutDescriptionTextInput.onkeyup = function(){
-    aboutDescriptionElement.innerHTML = aboutDescriptionTextInput.value;
-}
-////About Description Color
-var aboutDescriptionColorInput = document.querySelector('#aboutDescriptionColor');
-aboutDescriptionColorInput.onchange = function(){
-    aboutDescriptionElement.style.color = aboutDescriptionColorInput.value;
-}
 
 ///Features
-var featuresElement = document.querySelector('#features');
-var featuresBackgroundInput = document.querySelector('#featuresBackground');
-featuresBackgroundInput.onchange = function(){
-    featuresElement.style.background = featuresBackgroundInput.value;
-}
-
-//Variables
-var featuresContainer = document.querySelector('#features-container');
-var featuresList = document.querySelector('#features-list');
-
 var features = [
     {
         icon: 'fa-map-marker',
         title: 'Location',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+        description: 'Com o serviço de localização lorem ipsum dolor sit amet, consectetur adipiscing elit.'
     },
     {
-        icon: 'fa-map-marker',
-        title: 'Location',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+        icon: 'fa-signal',
+        title: 'Signal',
+        description: 'Use o sinal para lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
     }
 ];
 
+//Features 
+//Style Features
+function featuresStyleSave(){
+    //Background
+    var featuresElement = document.querySelector('#features');
+    var featuresBackgroundInput = document.querySelector('#featuresBackground');
+    featuresElement.style.background = featuresBackgroundInput.value;
+    //Inputs
+    var featuresIconColorInput = document.querySelector('#featuresIconColor');
+    var featuresIconBackgroundInput = document.querySelector('#featuresIconBackground');
+    var featuresTitleColorInput = document.querySelector('#featuresTitleColor');
+    var featuresDescriptionColorInput = document.querySelector('#featuresDescriptionColor');
+    //Elements
+    var allFeatures = document.querySelectorAll('.feature-item');
+    allFeatures.forEach(element => {
+        //Icon
+        var icon = element.querySelector('i');
+        icon.style.color = featuresIconColorInput.value;
+        icon.style.background = featuresIconBackgroundInput.value;
+        //Title
+        var title = element.querySelector('h3');
+        title.style.color = featuresTitleColorInput.value;
+        //Description
+        var description = element.querySelector('p');
+        description.style.color = featuresDescriptionColorInput.value;
+    });
+
+    closeModal('modalFeatures');
+}
+
+//Edit Feature Inputs
+var editFeatureTitleInput = document.querySelector('#editFeatureTitle');
+var editFeatureDescriptionInput = document.querySelector('#editFeatureDescription');
+
+//Edit Feature Modal
+function editFeatureModal(index){
+    var feature = features[index];
+    console.log(feature.title)
+    editFeatureTitleInput.value = feature.title;
+    editFeatureDescriptionInput.value = feature.description;
+    var editFeatureSaveBtn = document.querySelector('#editFeatureSaveBtn');
+    editFeatureSaveBtn.setAttribute('onclick', 'editFeatureSave('+index+')');
+
+    showModal('modalEditFeature');
+}
+//Edit Feature Save
+function editFeatureSave(index){
+    var feature = features[index];
+    feature.title = editFeatureTitleInput.value;
+    feature.description = editFeatureDescriptionInput.value;
+    console.log(features);
+    renderFeaturesList();
+    closeModal('modalEditFeature', false);
+}
+
+
+
+//Variables
+var featuresContainer = document.querySelector('#features-container');
+var featuresList = document.querySelector('#features-list');
 function renderFeaturesList(){
+    featuresContainer.innerHTML = '';
+    featuresList.innerHTML = '';
     features.map((element, index) => {
-        console.log(index)
         //Page
         var featureItem = document.createElement('div');
         featureItem.setAttribute('class', 'feature-item');
@@ -228,7 +256,7 @@ function renderFeaturesList(){
         //Editor
         var featureListElement = document.createElement('div');
         featureListElement.setAttribute('class', 'feature-list-element');
-        featureListElement.setAttribute('onclick', 'editFeature("'+index+'")');
+        featureListElement.setAttribute('onclick', 'editFeatureModal('+index+')');
         ///IconContainer
         featureIcon2 = featureIcon.cloneNode(true);
         featureListElement.appendChild(featureIcon2);
@@ -240,13 +268,4 @@ function renderFeaturesList(){
         featuresList.appendChild(featureListElement);
     });
 }
-
-//Edit Feature
-var editFeatureTitle = document.querySelector('#editFeatureTitle');
-var editFeatureDescription = document.querySelector('#editFeatureDescription');
-function editFeature(index){
-    featuresBackgroundInput.onchange = function()
-    showModal('modalEditFeature');
-}
-
 renderFeaturesList();
