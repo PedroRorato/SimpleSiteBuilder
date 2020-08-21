@@ -120,36 +120,34 @@ function submitAbout() {
     var aboutElement = document.querySelector('#about');
     aboutElement.style.background = form.background.value;
     //Title
-    var aboutTitleElement = aboutElement.querySelector('h1');
-    aboutTitleElement.style.color = form.titleColor.value;
+    var aboutTitle = aboutElement.querySelector('h1');
+    aboutTitle.style.color = form.titleColor.value;
     //Description
-    var aboutDescriptionElement = aboutElement.querySelector('p');
-    aboutDescriptionElement.innerHTML = form.descriptionText.value;
-    aboutDescriptionElement.style.color = form.descriptionColor.value;
+    var aboutDescription = aboutElement.querySelector('p');
+    aboutDescription.innerHTML = form.descriptionText.value;
+    aboutDescription.style.color = form.descriptionColor.value;
 
     closeModal('modalAbout');
 }
 ///Footer
-function footerSave() {
+function submitFooter() {
+    event.preventDefault();
+    var form = document.querySelector("#footerForm");
     //Background
     var footerElement = document.querySelector('footer');
-    var footerBackgroundInput = document.querySelector('#footerBackground');
-    footerElement.style.background = footerBackgroundInput.value;
+    footerElement.style.background = form.background.value;
     //Color
-    var footerLinks = document.querySelectorAll('footer a');
-    var footerColorInput = document.querySelector('#footerColor');
-    footerElement.style.color = footerColorInput.value;
+    var footerLinks = footerElement.querySelectorAll('a');
+    footerElement.style.color = form.color.value;
     footerLinks.forEach(element => {
-        element.style.color = footerColorInput.value;
+        element.style.color = form.color.value;;
     });
     //Privacy Policy
-    var privacyLinkElement = document.querySelector('.links-container').firstElementChild;
-    var privacyLinkInput = document.querySelector('#privacyLink');
-    privacyLinkElement.setAttribute('href', privacyLinkInput.value);
+    var privacyLink = footerElement.querySelector('.links-container').firstElementChild;
+    privacyLink.setAttribute('href', form.privacyLink.value);
     //Terms of Service
-    var termsLinkElement = document.querySelector('.links-container').lastElementChild;
-    var termsLinkInput = document.querySelector('#termsLink');
-    termsLinkElement.setAttribute('href', termsLinkInput.value);
+    var termsLink = footerElement.querySelector('.links-container').lastElementChild;
+    termsLink.setAttribute('href', form.termsLink.value);
 
     closeModal('modalFooter')
 }
@@ -242,7 +240,6 @@ function setIcon(modal, icon){
     //Set Input Value
     modalDiv.querySelector('.feature-icon').value = icon;
 }
-
 //Edit Feature Elements
 var editFeatureIconInput = document.querySelector('#modalEditFeature .feature-icon');
 var editFeatureTitleInput = document.querySelector('#editFeatureTitle');
@@ -287,8 +284,6 @@ function deleteFeature(index){
     closeModal('modalDeleteFeature', false);
     closeModal('modalEditFeature', false);
 }
-
-
 //Create Feature
 function createFeature(){
     //Inputs
@@ -307,8 +302,6 @@ function createFeature(){
     renderFeaturesList();
     closeModal('modalCreateFeature', false);
 }
-
-
 //Style Features
 function featuresStyleSave(){
     //Background

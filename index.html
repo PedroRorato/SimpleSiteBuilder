@@ -661,7 +661,7 @@
                         </div>
                     </div>
                     <div class="buttons-container">
-                        <button onclick="closeModal('modalAbout')" class="secondary">Close</button>
+                        <button type="button" onclick="closeModal('modalAbout')" class="secondary">Close</button>
                         <button type="submit" class="primary">Save</button>
                     </div>
                 </form>
@@ -673,39 +673,41 @@
                 <i onclick="closeModal('modalFooter')" class="fa fa-times close"></i>
                 <h3>Footer</h3>
                 <hr>
-                <div class="form">
-                    <div class="two-column-container">
-                        <div class="form-group">
-                            <label for="footerColor">Font Color</label>
-                            <input  type="color" value="#ffffff" id="footerColor" />
+                <form id="footerForm" onsubmit="submitFooter()">
+                    <div class="form">
+                        <div class="two-column-container">
+                            <div class="form-group">
+                                <label for="footerColor">Font Color</label>
+                                <input  type="color" name="color" value="#ffffff" id="footerColor" />
+                            </div>
+        
+                            <div class="form-group">
+                                <label for="footerBackground">Background</label>
+                                <input type="color" name="background" value="#343a40" id="footerBackground" />
+                            </div>
                         </div>
-    
-                        <div class="form-group">
-                            <label for="footerBackground">Background</label>
-                            <input type="color" value="#343a40" id="footerBackground" />
+                        <div>
+                            <h4>Privacy Policy</h4>
+                            <hr>
+                            <div class="form-group">
+                                <label for="privacyLink">Link</label>
+                                <input  type="text" name="privacyLink" placeholder="https://www..." id="privacyLink" />
+                            </div>
+                        </div>
+                        <div>
+                            <h4>Terms of Service</h4>
+                            <hr>
+                            <div class="form-group">
+                                <label for="termsLink">Link</label>
+                                <input  type="text" name="termsLink" placeholder="https://www..." id="termsLink" />
+                            </div>
                         </div>
                     </div>
-                    <div>
-                        <h4>Privacy Policy</h4>
-                        <hr>
-                        <div class="form-group">
-                            <label for="privacyLink">Link</label>
-                            <input  type="text" placeholder="https://www..." id="privacyLink" />
-                        </div>
+                    <div class="buttons-container">
+                        <button type="button" onclick="closeModal('modalFooter')" class="secondary">Close</button>
+                        <button type="submit" class="primary">Save</button>
                     </div>
-                    <div>
-                        <h4>Terms of Service</h4>
-                        <hr>
-                        <div class="form-group">
-                            <label for="termsLink">Link</label>
-                            <input  type="text" placeholder="https://www..." id="termsLink" />
-                        </div>
-                    </div>
-                </div>
-                <div class="buttons-container">
-                    <button onclick="closeModal('modalFooter')" class="secondary">Close</button>
-                    <button onclick="footerSave()" class="primary">Save</button>
-                </div>
+                </form>
             </div>
         </div>
 
