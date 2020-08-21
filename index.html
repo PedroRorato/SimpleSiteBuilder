@@ -633,36 +633,38 @@
                 <i onclick="closeModal('modalAbout')" class="fa fa-times close"></i>
                 <h3>About</h3>
                 <hr>
-                <div class="form">
-                    <div class="form-group">
-                        <label for="aboutBackground">Background</label>
-                        <input type="color" value="#ffffff" id="aboutBackground" />
-                    </div>
-                    <div>
-                        <h4>Title</h4>
-                        <hr>
+                <form id="aboutForm" onsubmit="submitAbout()">
+                    <div class="form">
                         <div class="form-group">
-                            <label for="aboutTitleColor">Font Color</label>
-                            <input  type="color" value="#343a40" id="aboutTitleColor" />
+                            <label for="aboutBackground">Background</label>
+                            <input type="color" name="background" value="#ffffff" id="aboutBackground"/>
+                        </div>
+                        <div>
+                            <h4>Title</h4>
+                            <hr>
+                            <div class="form-group">
+                                <label for="aboutTitleColor">Font Color</label>
+                                <input  type="color" name="titleColor" value="#343a40" id="aboutTitleColor" />
+                            </div>
+                        </div>
+                        <div>
+                            <h4>Description</h4>
+                            <hr>
+                            <div class="form-group">
+                                <label for="aboutDescriptionText">Text</label>
+                                <input type="text" name="descriptionText" id="aboutDescriptionText" value="Long description of your App, but not so much... Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor." />
+                            </div>
+                            <div class="form-group">
+                                <label for="aboutDescriptionColor">Font Color</label>
+                                <input  type="color" name="descriptionColor" value="#343a40" id="aboutDescriptionColor" />
+                            </div>
                         </div>
                     </div>
-                    <div>
-                        <h4>Description</h4>
-                        <hr>
-                        <div class="form-group">
-                            <label for="aboutDescriptionText">Text</label>
-                            <input type="text" value="Long description of your App, but not so much... Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." id="aboutDescriptionText" />
-                        </div>
-                        <div class="form-group">
-                            <label for="aboutDescriptionColor">Font Color</label>
-                            <input  type="color" value="#343a40" id="aboutDescriptionColor" />
-                        </div>
+                    <div class="buttons-container">
+                        <button onclick="closeModal('modalAbout')" class="secondary">Close</button>
+                        <button type="submit" class="primary">Save</button>
                     </div>
-                </div>
-                <div class="buttons-container">
-                    <button onclick="closeModal('modalAbout')" class="secondary">Close</button>
-                    <button onclick="aboutSave()" class="primary">Save</button>
-                </div>
+                </form>
             </div>
         </div>
 

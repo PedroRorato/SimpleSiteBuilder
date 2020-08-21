@@ -113,21 +113,19 @@ function homeSave() {
     closeModal('modalHome')
 }
 ///About
-function aboutSave() {
+function submitAbout() {
+    event.preventDefault();
+    var form = document.querySelector("#aboutForm");
     //Background
     var aboutElement = document.querySelector('#about');
-    var aboutBackgroundInput = document.querySelector('#aboutBackground');
-    aboutElement.style.background = aboutBackgroundInput.value;
+    aboutElement.style.background = form.background.value;
     //Title
-    var aboutTitleElement = document.querySelector('#about h1');
-    var aboutTitleColorInput = document.querySelector('#aboutTitleColor');
-    aboutTitleElement.style.color = aboutTitleColorInput.value;
+    var aboutTitleElement = aboutElement.querySelector('h1');
+    aboutTitleElement.style.color = form.titleColor.value;
     //Description
-    var aboutDescriptionElement = document.querySelector('#about p');
-    var aboutDescriptionTextInput = document.querySelector('#aboutDescriptionText');
-    aboutDescriptionElement.innerHTML = aboutDescriptionTextInput.value;
-    var aboutDescriptionColorInput = document.querySelector('#aboutDescriptionColor');
-    aboutDescriptionElement.style.color = aboutDescriptionColorInput.value;
+    var aboutDescriptionElement = aboutElement.querySelector('p');
+    aboutDescriptionElement.innerHTML = form.descriptionText.value;
+    aboutDescriptionElement.style.color = form.descriptionColor.value;
 
     closeModal('modalAbout');
 }
