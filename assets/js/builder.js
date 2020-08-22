@@ -217,14 +217,14 @@ var features = [
 //Render Icons
 var createIconsListDiv = document.querySelector('#modalCreateFeature .icons-list');
 var editIconsListDiv = document.querySelector('#modalEditFeature .icons-list');
-icons.map(element => {
+icons.map(function(item) {
     var button = document.createElement('button');
     var icon = document.createElement('i');
-    icon.setAttribute('class', 'fa '+element);
+    icon.setAttribute('class', 'fa '+item);
     button.appendChild(icon);
     button2 = button.cloneNode(true);
-    button.setAttribute('onclick', 'setIcon("#modalCreateFeature", "'+element+'")');
-    button2.setAttribute('onclick', 'setIcon("#modalEditFeature", "'+element+'")');
+    button.setAttribute('onclick', 'setIcon("#modalCreateFeature", "'+item+'")');
+    button2.setAttribute('onclick', 'setIcon("#modalEditFeature", "'+item+'")');
     createIconsListDiv.appendChild(button);
     editIconsListDiv.appendChild(button2);
 });
@@ -336,7 +336,7 @@ var featuresList = document.querySelector('#features-list');
 function renderFeaturesList(){
     featuresContainer.innerHTML = '';
     featuresList.innerHTML = '';
-    features.map((element, index) => {
+    features.map(function(element, index) {
         //Page
         var featureItem = document.createElement('div');
         featureItem.setAttribute('class', 'feature-item');
