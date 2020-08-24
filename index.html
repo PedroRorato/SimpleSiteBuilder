@@ -497,34 +497,35 @@
                 <i onclick="closeModal('modalHeader')" class="fa fa-times close"></i>
                 <h3>Header</h3>
                 <hr>
-                <div class="form">
-                    <div class="form-group">
-                        <label for="pageTitle">Page Title</label>
-                        <input type="text" value="App" id="pageTitle" />
-                    </div>
-
-                    <div class="two-column-container">
+                <form id="headerForm" onsubmit="submitHeader()">
+                    <div class="form">
                         <div class="form-group">
-                            <label for="headerFontColor">Font Color</label>
-                            <input  type="color" value="#343a40" id="headerFontColor" />
+                            <label for="pageTitle">Page Title</label>
+                            <input type="text" name="title" value="App" id="pageTitle" />
                         </div>
-    
-                        <div class="form-group">
-                            <label for="headerBackground">Background</label>
-                            <input type="color" value="#ffffff" id="headerBackground" />
-                        </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="logoImg">Logo Image</label>
-                        <input type="file" onchange="loadFileName(this)" id="logoImg" />
+                        <div class="two-column-container">
+                            <div class="form-group">
+                                <label for="headerFontColor">Font Color</label>
+                                <input  type="color" name="color" value="#343a40" id="headerFontColor" />
+                            </div>
+        
+                            <div class="form-group">
+                                <label for="headerBackground">Background</label>
+                                <input type="color" name="background" value="#ffffff" id="headerBackground" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="logoImg">Logo Image</label>
+                            <input type="file" name="image" id="logoImg" />
+                        </div>
                     </div>
-                </div>
-                <div class="buttons-container">
-                    <button onclick="closeModal('modalHeader')" class="secondary">Close</button>
-                    <button onclick="headerSave()" class="primary">Save</button>
-                </div>
-                
+                    <div class="buttons-container">
+                        <button onclick="closeModal('modalHeader')" class="secondary">Close</button>
+                        <button type="submit" class="primary">Save</button>
+                    </div>
+                </form>
             </div>
         </div>
 

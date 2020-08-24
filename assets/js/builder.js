@@ -65,6 +65,29 @@ function headerSave(){
 
     closeModal('modalHeader');
 }
+function submitHeader() {
+    event.preventDefault();
+    var form = document.querySelector("#headerForm");
+    //Title
+    var pageTitleElement = document.querySelector('title');
+    pageTitleElement.innerHTML = form.title.value;
+    //Menu
+    var headerAElements = document.querySelectorAll('#menu a');
+    headerAElements.forEach(function(element){
+        element.style.color = form.color.value;
+    });
+    var headerElement = document.querySelector('header');
+    var headerMenuElement = document.querySelector('#menu');
+    headerElement.style.background = form.background.value;
+    headerMenuElement.style.background = form.background.value;
+    //Logo
+    var logoElement = document.querySelector('#logo img');
+    if(form.image.files[0]){
+        base64(form.image, logoElement);
+    }
+
+    closeModal('modalHeader');
+}
 ///Home
 function homeSave() {
     //Background
