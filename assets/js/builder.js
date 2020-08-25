@@ -40,31 +40,6 @@ function base64(input, element){
 
 //Forms
 ///Header
-function headerSave(){
-    //Title
-    var pageTitleElement = document.querySelector('title');
-    var pageTitleInput = document.querySelector('#pageTitle');
-    pageTitleElement.innerHTML = pageTitleInput.value;
-    //Menu
-    var headerAElements = document.querySelectorAll('#menu a');
-    var headerAInput = document.querySelector('#headerFontColor');
-    headerAElements.forEach(function(element){
-        element.style.color = headerAInput.value;
-    });
-    var headerElement = document.querySelector('header');
-    var headerMenuElement = document.querySelector('#menu');
-    var headerInput = document.querySelector('#headerBackground');
-    headerElement.style.background = headerInput.value;
-    headerMenuElement.style.background = headerInput.value;
-    //Logo
-    var logoElement = document.querySelector('#logo img');
-    var logoInput = document.querySelector('#logoImg');
-    if(logoInput.files[0]){
-        base64(logoInput, logoElement);
-    }
-
-    closeModal('modalHeader');
-}
 function submitHeader() {
     event.preventDefault();
     var form = document.querySelector("#headerForm");
