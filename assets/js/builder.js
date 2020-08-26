@@ -51,6 +51,9 @@ function submitHeader() {
     headerAElements.forEach(function(element){
         element.style.color = form.color.value;
     });
+    var headerMenuBtn = document.querySelector('#bars');
+    headerMenuBtn.style.color = form.color.value;
+    headerMenuBtn.style.borderColor = form.color.value;
     var headerElement = document.querySelector('header');
     var headerMenuElement = document.querySelector('#menu');
     headerElement.style.background = form.background.value;

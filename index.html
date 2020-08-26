@@ -124,9 +124,6 @@
             }
 
             #bars i {
-                /*Custom*/
-                color: #343a40;
-                /*Standart*/
                 font-size: 1.75rem;
                 transition: .3s;
             }
@@ -393,6 +390,7 @@
         </style>
     </head>
     <body>
+        <!-- NAV Builder -->
         <nav class="builder">
             <p><i class="fa fa-edit"></i>Edit buttons on the top-right of each section.</p>
             <button onclick="download()">
@@ -491,7 +489,7 @@
             </small>
         </footer>
 
-        <!-- Builder -->
+        <!-- MODALS Builder -->
         <div id="modalHeader" class="builder modal">
             <div class="modal-content">
                 <i onclick="closeModal('modalHeader')" class="fa fa-times close"></i>
@@ -852,8 +850,7 @@
             </div>
         </div>
 
-
-         <!-- SCRIPT -->
+        <!-- SCRIPT -->
         <script>
             var menuElement = document.querySelector('#menu');
             menuElement.onclick = function(){
