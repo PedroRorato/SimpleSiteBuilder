@@ -432,11 +432,11 @@
                         
                     </h5>
                     <div class="btn-container">
-                        <a id="appStore" href="#" class="btn">
+                        <a id="appStore" target="_blank" href="#" class="btn">
                             <i class="fa fa-apple mr-3"></i>
                             App Store
                         </a>
-                        <a id="googlePlay" href="#" class="btn">
+                        <a id="googlePlay" target="_blank" href="#" class="btn">
                             <i class="fa fa-android mr-3"></i>
                             Google Play
                         </a>
@@ -532,98 +532,100 @@
                 <i onclick="closeModal('modalHome')" class="fa fa-times close"></i>
                 <h3>Home</h3>
                 <hr>
-                <div class="form">
-                    <div class="form-group">
-                        <label for="homeBackground">Background</label>
-                        <input type="color" value="#dde1e7" id="homeBackground" />
-                    </div>
-                    <div class="form-group">
-                        <label for="homeAppPrint">App Print</label>
-                        <input type="file" id="homeAppPrint" />
-                    </div>
-                    <div>
-                        <h4>Title</h4>
-                        <hr>
+                <form id="homeForm" onsubmit="submitHome()">
+                    <div class="form">
                         <div class="form-group">
-                            <label for="homeTitleText">Text</label>
-                            <input type="text" value="App Name" id="homeTitleText" />
+                            <label for="homeBackground">Background</label>
+                            <input type="color" name="background" value="#dde1e7" id="homeBackground" />
                         </div>
                         <div class="form-group">
-                            <label for="homeTitleColor">Font Color</label>
-                            <input  type="color" value="#343a40" id="homeTitleColor" />
+                            <label for="homeAppPrint">App Print</label>
+                            <input type="file" name="print" id="homeAppPrint" />
+                        </div>
+                        <div>
+                            <h4>Title</h4>
+                            <hr>
+                            <div class="form-group">
+                                <label for="homeTitleText">Text</label>
+                                <input type="text" name="titleText" value="App Name" id="homeTitleText" />
+                            </div>
+                            <div class="form-group">
+                                <label for="homeTitleColor">Font Color</label>
+                                <input type="color" name="titleColor" value="#343a40" id="homeTitleColor" />
+                            </div>
+                        </div>
+                        <div>
+                            <h4>Description</h4>
+                            <hr>
+                            <div class="form-group">
+                                <label for="homeDescriptionText">Text</label>
+                                <input type="text" name="descriptionText" value="Short description of your App... Lorem ipsum dolor sit amet, consectetur adipiscing elit." id="homeDescriptionText" />
+                            </div>
+                            <div class="form-group">
+                                <label for="homeDescriptionColor">Font Color</label>
+                                <input  type="color" name="descriptionColor" value="#343a40" id="homeDescriptionColor" />
+                            </div>
+                        </div>
+                        <div>
+                            <h4>App Store Button</h4>
+                            <hr>
+                            <div class="two-column-container">
+                                <div class="form-group">
+                                    <label for="appStoreDisplay">Display</label>
+                                    <select name="appStoreDisplay" id="appStoreDisplay">
+                                        <option value="flex">SHOW</option>
+                                        <option value="none">HIDE</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="appStoreLink">Link</label>
+                                    <input type="text" name="appStoreLink" value="#" id="appStoreLink" />
+                                </div>
+                            </div>
+                            <div class="two-column-container">
+                                <div class="form-group">
+                                    <label for="appStoreColor">Font Color</label>
+                                    <input  type="color" name="appStoreColor" value="#ffffff" id="appStoreColor" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="appStoreBackground">Background</label>
+                                    <input type="color" name="appStoreBackground" value="#5b79fb" id="appStoreBackground" />
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4>Google Play Button</h4>
+                            <hr>
+                            <div class="two-column-container">
+                                <div class="form-group">
+                                    <label for="googlePlayDisplay">Display</label>
+                                    <select name="googlePlayDisplay" id="googlePlayDisplay">
+                                        <option value="flex">SHOW</option>
+                                        <option value="none">HIDE</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="googlePlayLink">Link</label>
+                                    <input type="text" name="googlePlayLink" value="#" id="googlePlayLink" />
+                                </div>
+                            </div>
+                            <div class="two-column-container">
+                                <div class="form-group">
+                                    <label for="googlePlayColor">Font Color</label>
+                                    <input type="color" name="googlePlayColor" value="#ffffff" id="googlePlayColor" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="googlePlayBackground">Background</label>
+                                    <input type="color" name="googlePlayBackground" value="#5b79fb" id="googlePlayBackground" />
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div>
-                        <h4>Description</h4>
-                        <hr>
-                        <div class="form-group">
-                            <label for="homeDescriptionText">Text</label>
-                            <input type="text" value="Short description of your App... Lorem ipsum dolor sit amet, consectetur adipiscing elit." id="homeDescriptionText" />
-                        </div>
-                        <div class="form-group">
-                            <label for="homeDescriptionColor">Font Color</label>
-                            <input  type="color" value="#343a40" id="homeDescriptionColor" />
-                        </div>
+                    <div class="buttons-container">
+                        <button onclick="closeModal('modalHome')" class="secondary">Close</button>
+                        <button type="submit" class="primary">Save</button>
                     </div>
-                    <div>
-                        <h4>App Store Button</h4>
-                        <hr>
-                        <div class="two-column-container">
-                            <div class="form-group">
-                                <label for="appStoreDisplay">Display</label>
-                                <select id="appStoreDisplay">
-                                    <option value="flex">SHOW</option>
-                                    <option value="none">HIDE</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="appStoreLink">Link</label>
-                                <input type="text" value="#" id="appStoreLink" />
-                            </div>
-                        </div>
-                        <div class="two-column-container">
-                            <div class="form-group">
-                                <label for="appStoreColor">Font Color</label>
-                                <input  type="color" value="#ffffff" id="appStoreColor" />
-                            </div>
-                            <div class="form-group">
-                                <label for="appStoreBackground">Background</label>
-                                <input type="color" value="#5b79fb" id="appStoreBackground" />
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <h4>Google Play Button</h4>
-                        <hr>
-                        <div class="two-column-container">
-                            <div class="form-group">
-                                <label for="googlePlayDisplay">Display</label>
-                                <select id="googlePlayDisplay">
-                                    <option value="flex">SHOW</option>
-                                    <option value="none">HIDE</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="googlePlayLink">Link</label>
-                                <input type="text" value="#" id="googlePlayLink" />
-                            </div>
-                        </div>
-                        <div class="two-column-container">
-                            <div class="form-group">
-                                <label for="googlePlayColor">Font Color</label>
-                                <input  type="color" value="#ffffff" id="googlePlayColor" />
-                            </div>
-                            <div class="form-group">
-                                <label for="googlePlayBackground">Background</label>
-                                <input type="color" value="#5b79fb" id="googlePlayBackground" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="buttons-container">
-                    <button onclick="closeModal('modalHome')" class="secondary">Close</button>
-                    <button onclick="homeSave()" class="primary">Save</button>
-                </div>
+                </form>
             </div>
         </div>
 

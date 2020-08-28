@@ -6,7 +6,7 @@ Check the [App Site Builder](https://trusting-shaw-1c4c11.netlify.app/).
 
 ## Requirements and Constraints
  - It must be a Static Web Page.
- - All the content should be in the HTML file( this requirement exists because I wanted to use *Blob*, an *FileReader* ).
+ - All the content should be in the HTML file( this requirement exists because I wanted to use *Blob*, and *FileReader* ).
 
 
 ## User Stories

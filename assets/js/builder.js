@@ -67,51 +67,39 @@ function submitHeader() {
     closeModal('modalHeader');
 }
 ///Home
-function homeSave() {
+function submitHome() {
+    event.preventDefault();
+    var form = document.querySelector("#homeForm");
     //Background
     var homeElement = document.querySelector('#home');
-    var homeBackgroundInput = document.querySelector('#homeBackground');
-    homeElement.style.background = homeBackgroundInput.value;
+    homeElement.style.background = form.background.value;
     //Print
     var appPrintElement = document.querySelector('#mobile-screen');
-    var homeAppPrintInput = document.querySelector('#homeAppPrint');
-    if(homeAppPrintInput.files[0]){
-        base64(homeAppPrintInput, appPrintElement);
+    if(form.print.files[0]){
+        base64(form.print, appPrintElement);
     }
     //Title
     var homeTitleElement = document.querySelector('#home h1');
-    var homeTitleTextInput = document.querySelector('#homeTitleText');
-    homeTitleElement.innerHTML = homeTitleTextInput.value;
-    var homeTitleColorInput = document.querySelector('#homeTitleColor');
-    homeTitleElement.style.color = homeTitleColorInput.value;
+    homeTitleElement.innerHTML = form.titleText.value;
+    homeTitleElement.style.color = form.titleColor.value;
     //Description
     var homeDescriptionElement = document.querySelector('#home h5');
-    var homeDescriptionTextInput = document.querySelector('#homeDescriptionText');
-    homeDescriptionElement.innerHTML = homeDescriptionTextInput.value;
-    var homeDescriptionColorInput = document.querySelector('#homeDescriptionColor');
-    homeDescriptionElement.style.color = homeDescriptionColorInput.value;
+    homeDescriptionElement.innerHTML = form.descriptionText.value;
+    homeDescriptionElement.style.color = form.descriptionColor.value;
     //AppStore
     var appStoreElement = document.querySelector('#appStore');
-    var appStoreDisplayInput = document.querySelector('#appStoreDisplay');
-    appStoreElement.style.display = appStoreDisplayInput.value;
-    var appStoreLinkInput = document.querySelector('#appStoreLink');
-    appStoreElement.setAttribute('href', appStoreLinkInput.value);
-    var appStoreColorInput = document.querySelector('#appStoreColor');
-    appStoreElement.style.color = appStoreColorInput.value;
-    var appStoreBackgroundInput = document.querySelector('#appStoreBackground');
-    appStoreElement.style.background = appStoreBackgroundInput.value;
+    appStoreElement.style.display = form.appStoreDisplay.value;
+    appStoreElement.setAttribute('href', form.appStoreLink.value);
+    appStoreElement.style.color = form.appStoreColor.value;
+    appStoreElement.style.background = form.appStoreBackground.value;
     ////GooglePlay
     var googlePlayElement = document.querySelector('#googlePlay');
-    var googlePlayDisplayInput = document.querySelector('#googlePlayDisplay');
-    googlePlayElement.style.display = googlePlayDisplayInput.value;
-    var googlePlayLinkInput = document.querySelector('#googlePlayLink');
-    googlePlayElement.setAttribute('href', googlePlayLinkInput.value);
-    var googlePlayColorInput = document.querySelector('#googlePlayColor');
-    googlePlayElement.style.color = googlePlayColorInput.value;
-    var googlePlayBackgroundInput = document.querySelector('#googlePlayBackground');
-    googlePlayElement.style.background = googlePlayBackgroundInput.value;
+    googlePlayElement.style.display = form.googlePlayDisplay.value;
+    googlePlayElement.setAttribute('href', form.googlePlayLink.value);
+    googlePlayElement.style.color = form.googlePlayColor.value;
+    googlePlayElement.style.background = form.googlePlayBackground.value;
 
-    closeModal('modalHome')
+    closeModal('modalHome');
 }
 ///About
 function submitAbout() {
