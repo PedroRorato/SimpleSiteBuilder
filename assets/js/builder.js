@@ -292,29 +292,25 @@ function createFeature(){
     closeModal('modalCreateFeature', false);
 }
 //Style Features
-function featuresStyleSave(){
+function submitFeaturesStyle() {
+    event.preventDefault();
+    var form = document.querySelector("#featuresStyleForm");
     //Background
     var featuresElement = document.querySelector('#features');
-    var featuresBackgroundInput = document.querySelector('#featuresBackground');
-    featuresElement.style.background = featuresBackgroundInput.value;
-    //Inputs
-    var featuresIconColorInput = document.querySelector('#featuresIconColor');
-    var featuresIconBackgroundInput = document.querySelector('#featuresIconBackground');
-    var featuresTitleColorInput = document.querySelector('#featuresTitleColor');
-    var featuresDescriptionColorInput = document.querySelector('#featuresDescriptionColor');
+    featuresElement.style.background = form.background.value;
     //Elements
     var allFeatures = document.querySelectorAll('.feature-item');
     allFeatures.forEach(element => {
         //Icon
         var icon = element.querySelector('i');
-        icon.style.color = featuresIconColorInput.value;
-        icon.style.background = featuresIconBackgroundInput.value;
+        icon.style.color = form.iconColor.value;
+        icon.style.background = form.iconBackground.value;
         //Title
         var title = element.querySelector('h3');
-        title.style.color = featuresTitleColorInput.value;
+        title.style.color = form.titleColor.value;
         //Description
         var description = element.querySelector('p');
-        description.style.color = featuresDescriptionColorInput.value;
+        description.style.color = form.descriptionColor.value;
     });
 
     closeModal('modalFeatures');
