@@ -219,6 +219,7 @@ icons.map(function(item) {
 });
 //Set Icon
 function setIcon(modal, icon){
+    event.preventDefault();
     var modalDiv = document.querySelector(modal);
     //Remove
     modalDiv.querySelector('.icon-label i').remove();
@@ -274,20 +275,20 @@ function deleteFeature(index){
     closeModal('modalEditFeature', false);
 }
 //Create Feature
-function createFeature(){
-    //Inputs
-    var createFeatureIconInput = document.querySelector('#modalCreateFeature .feature-icon');
-    var createFeatureTitleInput = document.querySelector('#createFeatureTitle');
-    var createFeatureDescriptionInput = document.querySelector('#createFeatureDescription');
+function submitCreateFeature(){
+    event.preventDefault();
+    var form = document.querySelector("#createFeaturesForm");
     //Create New Feature
     var newFeature = {
-        icon: createFeatureIconInput.value,
-        title: createFeatureTitleInput.value,
-        description: createFeatureDescriptionInput.value
+        icon: form.icon.value,
+        title: form.title.value,
+        description: form.description.value
     };
     //Add
     features.push(newFeature);
-
+    form.icon.value = '';
+    form.title.value = '';
+    form.description.value = '';
     renderFeaturesList();
     closeModal('modalCreateFeature', false);
 }

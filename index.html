@@ -828,29 +828,31 @@
                 <i onclick="closeModal('modalCreateFeature', false)" class="fa fa-times close"></i>
                 <h3>Create Feature</h3>
                 <hr>
-                <div class="form">
-                    <div class="form-group">
-                        <div class="icon-label">
-                            Icon: 
-                            <i  class="fa fa-linux"></i>
+                <form id="createFeaturesForm" onsubmit="submitCreateFeature()">
+                    <div class="form">
+                        <div class="form-group">
+                            <div class="icon-label">
+                                Icon: 
+                                <i  class="fa fa-linux"></i>
+                            </div>
+                            <input type="hidden" name="icon" value="fa-linux" class="feature-icon" />
+                            <div class="icons-list"></div>
                         </div>
-                        <input type="hidden" value="fa-linux" class="feature-icon" />
-                        <div class="icons-list"></div>
+                        <div class="form-group">
+                            <label for="createFeatureTitle">Title</label>
+                            <input type="text" name="title" id="createFeatureTitle" />
+                        </div>
+                        <div class="form-group">
+                            <label for="createFeatureDescription">Description</label>
+                            <input type="text" name="description" id="createFeatureDescription" />
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="createFeatureTitle">Title</label>
-                        <input type="text" id="createFeatureTitle" />
+                    <div class="buttons-container">
+                        <button onclick="closeModal('modalCreateFeature', false)" class="secondary">
+                            Close</button>
+                        <button type="submit" class="primary">Create</button>
                     </div>
-                    <div class="form-group">
-                        <label for="createFeatureDescription">Description</label>
-                        <input type="text" id="createFeatureDescription" />
-                    </div>
-                </div>
-                <div class="buttons-container">
-                    <button onclick="closeModal('modalCreateFeature', false)" class="secondary">
-                        Close</button>
-                    <button onclick="createFeature()" class="primary">Create</button>
-                </div>
+                </form>
             </div>
         </div>
 
