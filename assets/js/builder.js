@@ -240,11 +240,11 @@ function editFeatureModal(index){
     form.description.value = feature.description;
     var deleteFeatureBtn = document.querySelector('#deleteFeatureBtn');
     deleteFeatureBtn.setAttribute('onclick', 'deleteFeatureModal('+index+')' )
-    form.setAttribute('onsubmit', 'editFeatureSave('+index+')');
+    form.setAttribute('onsubmit', 'submitEditFeature('+index+')');
     showModal('modalEditFeature');
 }
-//Edit Feature Save
-function editFeatureSave(index){
+//Submit Edit Feature
+function submitEditFeature(index){
     event.preventDefault();
     var form = document.querySelector("#editFeatureForm");
     var feature = features[index];
