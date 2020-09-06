@@ -230,29 +230,27 @@ function setIcon(modal, icon){
     //Set Input Value
     modalDiv.querySelector('.feature-icon').value = icon;
 }
-//Edit Feature Elements
-var editFeatureIconInput = document.querySelector('#modalEditFeature .feature-icon');
-var editFeatureTitleInput = document.querySelector('#editFeatureTitle');
-var editFeatureDescriptionInput = document.querySelector('#editFeatureDescription');
 //Edit Feature Modal
 function editFeatureModal(index){
+    var form = document.querySelector("#editFeatureForm");
     var feature = features[index];
     setIcon('#modalEditFeature', feature.icon);
-    editFeatureIconInput.value = feature.icon;
-    editFeatureTitleInput.value = feature.title;
-    editFeatureDescriptionInput.value = feature.description;
+    form.icon.value = feature.icon;
+    form.title.value = feature.title;
+    form.description.value = feature.description;
     var deleteFeatureBtn = document.querySelector('#deleteFeatureBtn');
     deleteFeatureBtn.setAttribute('onclick', 'deleteFeatureModal('+index+')' )
-    var editFeatureSaveBtn = document.querySelector('#editFeatureSaveBtn');
-    editFeatureSaveBtn.setAttribute('onclick', 'editFeatureSave('+index+')');
+    form.setAttribute('onsubmit', 'editFeatureSave('+index+')');
     showModal('modalEditFeature');
 }
 //Edit Feature Save
 function editFeatureSave(index){
+    event.preventDefault();
+    var form = document.querySelector("#editFeatureForm");
     var feature = features[index];
-    feature.icon = editFeatureIconInput.value;
-    feature.title = editFeatureTitleInput.value;
-    feature.description = editFeatureDescriptionInput.value;
+    feature.icon = form.icon.value;
+    feature.title = form.title.value;
+    feature.description = form.description.value;
     renderFeaturesList();
     closeModal('modalEditFeature', false);
 }
